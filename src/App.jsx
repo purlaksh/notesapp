@@ -7,9 +7,11 @@ function App() {
   const [count, setCount] = useState(0)
   console.log("#####HI#####")
   console.log(process.env.secrets.REACT_APP_API_KEY)
-  console.log(process.env.mytestparam1)
+  console.log(process.env.REACT_APP_API_KEY)
+  console.log(process.env)
   console.log(process.env.secrets)
   console.log("#####BYE#####")
+  
   return (
     <>
       <div>
