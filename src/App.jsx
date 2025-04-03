@@ -5,7 +5,11 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  console.log("#####HI#####")
+  console.log(process.env.API_KEY)
+  console.log(process.env.mytestparam1)
+  console.log(process.env)
+  console.log("#####BYE#####")
   return (
     <>
       <div>
