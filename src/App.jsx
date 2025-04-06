@@ -2,14 +2,19 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { SSMClient, GetParameterCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+// const { SSMClient, GetParameterCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
 
 function App() {
   const [count, setCount] = useState(0)
-  console.log("#####HI#####")
-  console.log('Printing the secret value = ', import.meta.env.REACT_APP_API_KEY)
-  console.log(process.env)
-  console.log("#####BYE#####")
-  const REACT_APP_API_KEY = import.meta.env.REACT_APP_API_KEY
+  const client = new SSMClient(config);
+  const input = { // GetParameterRequest
+  Name: "REACT_APP_API_KEY", // required
+  WithDecryption: true,
+};
+  const command = new GetParameterCommand(input);
+  const response = await client.send(command);
+  console.log('Printing the secret value = ', response);
   
   return (
     <>
