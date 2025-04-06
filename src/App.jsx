@@ -2,13 +2,12 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { SSMClient, GetParameterCommand } from "@aws-sdk/client-ssm"; // ES Modules import
-// const { SSMClient, GetParameterCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+import { secret } from '@aws-amplify/backend';
 
 function App() {
   const [count, setCount] = useState(0)
-  console.log('REACT_APP_API_KEY', process.env.REACT_APP_API_KEY);
-  console.log('Printing the secret value = ', import.meta.env.REACT_APP_API_KEY);
+  console.log('Environment variable REACT_APP_API_KEY', process.env.REACT_APP_API_KEY);
+  console.log('Printing the secret value = ', secret(REACT_APP_API_KEY));
   
   return (
     <>
