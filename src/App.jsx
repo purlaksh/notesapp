@@ -5,16 +5,9 @@ import './App.css'
 import { SSMClient, GetParameterCommand } from "@aws-sdk/client-ssm"; // ES Modules import
 // const { SSMClient, GetParameterCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
 
-const App = async () => {
+function App() {
   const [count, setCount] = useState(0)
-  const client = new SSMClient(config);
-  const input = { // GetParameterRequest
-  Name: "REACT_APP_API_KEY", // required
-  WithDecryption: true,
-};
-  const command = new GetParameterCommand(input);
-  const response = await client.send(command);
-  console.log('Printing the secret value = ', response);
+  console.log('REACT_APP_API_KEY', process.env.REACT_APP_API_KEY);
   
   return (
     <>
