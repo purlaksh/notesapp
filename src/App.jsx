@@ -5,7 +5,7 @@ import './App.css'
 import { SSMClient, GetParameterCommand } from "@aws-sdk/client-ssm"; // ES Modules import
 // const { SSMClient, GetParameterCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
 
-function App() {
+const App = async () => {
   const [count, setCount] = useState(0)
   const client = new SSMClient(config);
   const input = { // GetParameterRequest
