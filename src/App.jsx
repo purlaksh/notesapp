@@ -8,6 +8,7 @@ import { SSMClient, GetParameterCommand } from "@aws-sdk/client-ssm"; // ES Modu
 function App() {
   const [count, setCount] = useState(0)
   console.log('REACT_APP_API_KEY', process.env.REACT_APP_API_KEY);
+  console.log('Printing the secret value = ', import.meta.env.REACT_APP_API_KEY);
   
   return (
     <>
