@@ -9,6 +9,7 @@ function App() {
   console.log('Printing the secret value = ', import.meta.env.REACT_APP_API_KEY)
   console.log(process.env)
   console.log("#####BYE#####")
+  const REACT_APP_API_KEY = import.meta.env.REACT_APP_API_KEY
   
   return (
     <>
